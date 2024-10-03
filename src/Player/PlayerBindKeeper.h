@@ -6,6 +6,7 @@ namespace al {
 class HitSensor;
 class SensorMsg;
 }  // namespace al
+
 class IUsePlayerPuppet;
 class PlayerBindableSensorList;
 
@@ -14,6 +15,14 @@ public:
     PlayerBindKeeper(al::HitSensor* bodyHitSensor, IUsePlayerPuppet* puppet);
 
     bool receiveRequestDamage();
+
+    bool sendMsgBindKeepDemoStart();
+    bool sendMsgBindKeepDemoExecute();
+    bool sendMsgBindKeepDemoEnd();
+    bool sendMsgBindDamage();
+    bool sendMsgBindRecoveryLife() const;
+    bool sendMsgCollidedGround();
+    bool sendMsgEnableMapCheckPointWarp();
 
     al::HitSensor* getBindSensor() const { return mBindSensor; }
 
